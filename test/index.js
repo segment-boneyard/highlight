@@ -141,7 +141,6 @@ describe('highlight', function(){
         },
         '>'
       ]);
-      console.log(code);
       assert.equal(code, '&lt;<span class="Highlight-tag">script</span>&gt;');
     });
   });
