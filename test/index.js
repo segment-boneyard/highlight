@@ -130,7 +130,10 @@ describe('highlight', function(){
     it('should highlight a string of a given language', function(){
       var h = Highlight().use(fixture);
       var code = h.string('an {{ interpolated }} string', 'fixture');
-      assert.equal(code, 'an <span class="interpolation">{{ interpolated }}</span> string');
+      assert.equal(
+        code,
+        'an <span class="interpolation">{{ interpolated }}</span> string'
+      );
     });
   });
 
@@ -139,14 +142,20 @@ describe('highlight', function(){
       var h = Highlight().use(fixture);
       var el = domify('<div data-language="fixture">an {{ interpolated }} string</div>');
       h.element(el);
-      assert.equal(el.innerHTML, 'an <span class="interpolation">{{ interpolated }}</span> string');
+      assert.equal(
+        el.innerHTML,
+        'an <span class="interpolation">{{ interpolated }}</span> string'
+      );
     });
 
     it('should guess the language from a class', function(){
       var h = Highlight().use(fixture);
       var el = domify('<div class="language-fixture">an {{ interpolated }} string</div>');
       h.element(el);
-      assert.equal(el.innerHTML, 'an <span class="interpolation">{{ interpolated }}</span> string');
+      assert.equal(
+        el.innerHTML,
+        'an <span class="interpolation">{{ interpolated }}</span> string'
+      );
     });
   });
 
@@ -160,8 +169,11 @@ describe('highlight', function(){
 
       h.elements(el.querySelectorAll('code'));
       assert.equal(el.innerHTML, ''
-        + '<code data-language="fixture">a <span class="block"><span class="open">{{#block}}</span> in a <span class="close">{{/block}}</span></span> string</code>'
-        + '<code class="language-fixture">an <span class="interpolation">{{ interpolated }}</span> string</code>');
+        + '<code data-language="fixture">a '
+        + '<span class="block"><span class="open">{{#block}}</span> in a '
+        + '<span class="close">{{/block}}</span></span> string</code>'
+        + '<code class="language-fixture">an '
+        + '<span class="interpolation">{{ interpolated }}</span> string</code>');
     });
 
   });
