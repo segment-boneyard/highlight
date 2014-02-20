@@ -13,6 +13,7 @@
     "component/escape-html": "*"
   },
   "development": {
-    "component/assert": "*"
+    "component/assert": "*",
+    "component/domify": "*"
   }
 }

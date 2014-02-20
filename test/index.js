@@ -1,24 +1,7 @@
 
 var assert = require('assert');
+var domify = require('domify');
 var Highlight = require('highlight');
-
-/**
- * Grammar fixture.
- */
-
-var handlebars = {
-  'interpolation': /(\{\{\s*\w+\s*\}\})/
-}
-
-/**
- * Plugin fixture.
- *
- * @param {Highlight} highlight
- */
-
-function fixture(highlight){
-  highlight.language('handlebars', handlebars);
-}
 
 describe('highlight', function(){
   it('should expose a constructor', function(){
@@ -114,10 +97,92 @@ describe('highlight', function(){
   describe('#stringify', function(){
     it('should stringify an ast', function(){
       var h = Highlight().use(fixture);
-      var ast = h.parse('an {{ interpolation }} in a {{ size }} string', 'handlebars');
-      var code = h.stringify(ast);
-      assert.equal(code, 'an <span class="interpolation">{{ interpolation }}</span> in a <span class="interpolation">{{ size }}</span> string');
+      var code = h.stringify([
+        'an ',
+        {
+          type: 'interpolation',
+          value: '{{interpolation}}'
+        },
+        ' and a ',
+        {
+          type: 'block',
+          value: [{
+            type: 'open',
+            value: '{{#block}}',
+          },
+          ' in a ',
+          {
+            type: 'close',
+            value: '{{/block}}'
+          }]
+        },
+        ' string'
+      ]);
+
+      assert.equal(code, ''
+        + 'an <span class="interpolation">{{interpolation}}</span> and a '
+        + '<span class="block"><span class="open">{{#block}}</span> in a '
+        + '<span class="close">{{/block}}</span></span> string');
     });
   });
 
+  describe('#string', function(){
+    it('should highlight a string of a given language', function(){
+      var h = Highlight().use(fixture);
+      var code = h.string('an {{ interpolated }} string', 'fixture');
+      assert.equal(code, 'an <span class="interpolation">{{ interpolated }}</span> string');
+    });
+  });
+
+  describe('#element', function(){
+    it('should highlight the text content of an element', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div data-language="fixture">an {{ interpolated }} string</div>');
+      h.element(el);
+      assert.equal(el.innerHTML, 'an <span class="interpolation">{{ interpolated }}</span> string');
+    });
+
+    it('should guess the language from a class', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div class="language-fixture">an {{ interpolated }} string</div>');
+      h.element(el);
+      assert.equal(el.innerHTML, 'an <span class="interpolation">{{ interpolated }}</span> string');
+    });
+  });
+
+  describe('#elements', function(){
+    it('should highlight the text content of multiple elements', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div>'
+        + '<code data-language="fixture">a {{#block}} in a {{/block}} string</code>'
+        + '<code class="language-fixture">an {{ interpolated }} string</code>'
+        + '</div>');
+
+      h.elements(el.querySelectorAll('code'));
+      assert.equal(el.innerHTML, ''
+        + '<code data-language="fixture">a <span class="block"><span class="open">{{#block}}</span> in a <span class="close">{{/block}}</span></span> string</code>'
+        + '<code class="language-fixture">an <span class="interpolation">{{ interpolated }}</span> string</code>');
+    });
+
+  });
+
 });
+
+/**
+ * Plugin fixture.
+ *
+ * @param {Highlight} highlight
+ */
+
+function fixture(highlight){
+  highlight.language('fixture', {
+    interpolation: /(\{\{\s*\w+\s*\}\})/,
+    block: {
+      pattern: /\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\}/,
+      children: {
+        open: /\{\{#\s*\w+\s*\}\}/,
+        close: /\{\{\/\s*\w+\s*\}\}/
+      }
+    }
+  });
+}
