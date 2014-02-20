@@ -65,10 +65,10 @@ describe('highlight', function(){
       var lang = 'handlebars';
       var grammar = {
         block: {
-          pattern: /\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\}/,
+          pattern: /(\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\})/,
           children: {
-            open: /\{\{#\s*\w+\s*\}\}/,
-            close: /\{\{\/\s*\w+\s*\}\}/
+            open: /(\{\{#\s*\w+\s*\}\})/,
+            close: /(\{\{\/\s*\w+\s*\}\})/
           }
         }
       };
@@ -123,6 +123,20 @@ describe('highlight', function(){
         + 'an <span class="interpolation">{{interpolation}}</span> and a '
         + '<span class="block"><span class="open">{{#block}}</span> in a '
         + '<span class="close">{{/block}}</span></span> string');
+    });
+
+    it('should escape the output', function(){
+      var h = Highlight();
+      var code = h.stringify([
+        '<',
+        {
+          type: 'tag',
+          value: 'script'
+        },
+        '>'
+      ]);
+      console.log(code);
+      assert.equal(code, '&lt;<span class="tag">script</span>&gt;');
     });
   });
 
@@ -190,10 +204,10 @@ function fixture(highlight){
   highlight.language('fixture', {
     interpolation: /(\{\{\s*\w+\s*\}\})/,
     block: {
-      pattern: /\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\}/,
+      pattern: /(\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\})/,
       children: {
-        open: /\{\{#\s*\w+\s*\}\}/,
-        close: /\{\{\/\s*\w+\s*\}\}/
+        open: /(\{\{#\s*\w+\s*\}\})/,
+        close: /(\{\{\/\s*\w+\s*\}\})/
       }
     }
   });

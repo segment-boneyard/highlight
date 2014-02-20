@@ -2,7 +2,7 @@
   "name": "highlight",
   "version": "0.0.0",
   "repo": "ianstormtaylor/highlight",
-  "description": "A simple API for code highlighting.",
+  "description": "A simple, pluggable API for syntax highlighting.",
   "keywords": [],
   "license": "MIT",
   "main": "lib/index.js",
