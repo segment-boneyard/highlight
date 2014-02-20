@@ -1,0 +1,18 @@
+{
+  "name": "highlight",
+  "version": "0.0.0",
+  "repo": "ianstormtaylor/highlight",
+  "description": "A simple API for code highlighting.",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": [
+    "lib/index.js"
+  ],
+  "dependencies": {
+    "component/escape-html": "*"
+  },
+  "development": {
+    "component/assert": "*"
+  }
+}
