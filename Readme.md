@@ -64,7 +64,9 @@ highlight.all();
 
   Highlight an `el`. It will use the `data-language` attribute:
 
-    <pre data-language="css"><code></code></pre>
+```html
+<pre data-language="css"><code>YOUR CODE HERE</code></pre>
+```
 
 #### #elements(els)
 
