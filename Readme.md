@@ -3,11 +3,9 @@
 
   A simple, pluggable API for syntax highlighting.
 
-  All the existing syntax highlighting libraries have pretty convoluted APIs. And lots bundle the languages directly into the core library, which makes it much harder to make reason about them individually, or to have the smallest possible filesize if you don't need the esoteric ones.
+  Syntax highlighters tend to have pretty opinionated APIs, both in terms of when to highlight, and how to determine the language. And lots bundle the languages directly into the core library, which makes it much harder to reason about them individually, or to have the smallest possible file size if you don't need the esoteric ones.
 
-  So... that's why this was created. The language definitions are all separate plugins, so you can get the smallest possible file size, and so that they're simpler for everyone to contribute to (because regexes are already hard enough to read as it is).
-
-  And it doesn't highlight every element on the page by default when loaded.
+  So... we made this one. The API is very simple, yet still gives you full control. The language definitions are all [separate plugins](#languages), so you get the smallest possible build size, and so that they're simpler for everyone to contribute to. Because regexes are already hard enough to read as it is!
 
 ## Installation
 
@@ -44,7 +42,13 @@ highlight.all();
 
 - [CSS](https://github.com/segmentio/highlight-css)
 - [HTML](https://github.com/segmentio/highlight-xml)
+- Java
 - [Javascript](https://github.com/segmentio/highlight-javascript)
+- .NET
+- PHP
+- Python
+- Objective-C
+- Ruby
 - [XML](https://github.com/segmentio/highlight-xml)
 
 ## API
