@@ -17,7 +17,7 @@
 
 ```js
 var Highlight = require('highlight')
-var html = require('highlight-javascript');
+var html = require('highlight-html');
 var js = require('highlight-javascript');
 
 var highlight = new Highlight()
