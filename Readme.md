@@ -1,9 +1,11 @@
 
 # highlight
 
-  A simple API for code highlighting.
+  A simple, pluggable API for code highlighting.
 
-  Because all of the existing Javascript highlighting APIs are way too convoluted.
+  All the existing highlighting libraries have convoluted APIs, and bundle the languages directly into the core library, making it much harder to make tweaks or have tiny builds if you don't need to esoteric ones.
+
+  So... that's why this was created. Languages are all separate plugins, so you can get the smallest possible file size, and so that they are simpler to edit (because regexes are already hard enough to read as it is).
 
 ## Installation
 
@@ -70,13 +72,21 @@ highlight.all();
 
   Highlight all of the elements in the DOM that have a `data-language` attribute.
 
+#### #prefix(string)
+
+  Set the CSS class name prefix `string`.
+
 #### #language(name, grammar)
 
   Define a new language by `name` with a `grammar`.
 
-#### #prefix(string)
+#### #parse(string, language)
+ 
+  Return an AST for a given `string` and `language`.
 
-  Set the CSS class name prefix `string`.
+#### #stringify(ast)
+
+  Convert an `AST` into a string of HTML.
 
 ## License
 
