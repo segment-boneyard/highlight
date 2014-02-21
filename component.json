@@ -1,7 +1,7 @@
 {
   "name": "highlight",
-  "version": "0.0.0",
-  "repo": "ianstormtaylor/highlight",
+  "version": "0.0.1",
+  "repo": "segmentio/highlight",
   "description": "A simple, pluggable API for syntax highlighting.",
   "keywords": [],
   "license": "MIT",
