@@ -61,15 +61,15 @@ highlight.all();
 
   Highlight a `string` of code of a given `language`.
 
-#### #element(el)
+#### #element(el, [language])
 
-  Highlight an `el`. It will use the `data-language` attribute:
+  Highlight an `el`. If you don't pass a `language`, it will use the `data-language` attribute:
 
 ```html
 <pre data-language="css"><code>YOUR CODE HERE</code></pre>
 ```
 
-#### #elements(els)
+#### #elements(els, [language])
 
   Highlight a series of `els`.
 

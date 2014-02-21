@@ -184,6 +184,16 @@ describe('highlight', function(){
         + '<span class="Highlight-interpolation">{{ interpolated }}</span>'
         + ' string');
     });
+
+    it('should use a passed in languge', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div>an {{ interpolated }} string</div>');
+      h.element(el, 'fixture');
+      assert.equal(el.innerHTML, ''
+        + 'an '
+        + '<span class="Highlight-interpolation">{{ interpolated }}</span>'
+        + ' string');
+    });
   });
 
   describe('#elements', function(){
