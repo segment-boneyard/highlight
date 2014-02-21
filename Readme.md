@@ -1,7 +1,7 @@
 
 # highlight
 
-  A simple, pluggable API for code highlighting.
+  A simple, pluggable API for syntax highlighting.
 
   All the existing highlighting libraries have convoluted APIs, and bundle the languages directly into the core library, making it much harder to make tweaks or have tiny builds if you don't need to esoteric ones.
 
