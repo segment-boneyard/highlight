@@ -3,9 +3,11 @@
 
   A simple, pluggable API for syntax highlighting.
 
-  All the existing highlighting libraries have convoluted APIs, and bundle the languages directly into the core library, making it much harder to make tweaks or have tiny builds if you don't need to esoteric ones.
+  All the existing syntax highlighting libraries have pretty convoluted APIs. And lots bundle the languages directly into the core library, which makes it much harder to make reason about them individually, or to have the smallest possible filesize if you don't need the esoteric ones.
 
-  So... that's why this was created. Languages are all separate plugins, so you can get the smallest possible file size, and so that they are simpler to edit (because regexes are already hard enough to read as it is).
+  So... that's why this was created. The language definitions are all separate plugins, so you can get the smallest possible file size, and so that they're simpler for everyone to contribute to (because regexes are already hard enough to read as it is).
+
+  And it doesn't highlight every element on the page by default when loaded.
 
 ## Installation
 
