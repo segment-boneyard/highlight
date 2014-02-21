@@ -17,7 +17,7 @@
 
 ```js
 var Highlight = require('highlight')
-var html = require('highlight-html');
+var html = require('highlight-xml');
 var js = require('highlight-javascript');
 
 var highlight = new Highlight()
@@ -43,8 +43,9 @@ highlight.all();
 ## Languages
 
 - [CSS](https://github.com/segmentio/highlight-css)
-- [HTML](https://github.com/segmentio/highlight-html)
+- [HTML](https://github.com/segmentio/highlight-xml)
 - [Javascript](https://github.com/segmentio/highlight-javascript)
+- [XML](https://github.com/segmentio/highlight-xml)
 
 ## API
 
