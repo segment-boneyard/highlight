@@ -30,6 +30,14 @@ describe('highlight', function(){
     });
   });
 
+  describe('#prefix', function(){
+    it('should set a class name prefix', function(){
+      var h = Highlight();
+      h.prefix('prefix');
+      assert.equal(h._prefix, 'prefix');
+    });
+  });
+
   describe('#language', function(){
     it('should define a new language with a grammar', function(){
       var h = Highlight();
