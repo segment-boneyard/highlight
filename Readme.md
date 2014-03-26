@@ -1,4 +1,3 @@
-
 # highlight
 
   A simple, pluggable API for syntax highlighting.
@@ -42,13 +41,13 @@ highlight.all();
 
 - [CSS](https://github.com/segmentio/highlight-css)
 - [HTML](https://github.com/segmentio/highlight-xml)
-- Java
+- [Java](https://github.com/segmentio/highlight-java)
 - [Javascript](https://github.com/segmentio/highlight-javascript)
-- .NET
-- PHP
-- Python
-- Objective-C
-- Ruby
+- [.NET](https://github.com/segmentio/highlight-csharp)
+- [PHP](https://github.com/segmentio/highlight-php)
+- [Python](https://github.com/segmentio/highlight-python)
+- [Objective-C](https://github.com/segmentio/highlight-objective-c)
+- [Ruby](https://github.com/segmentio/highlight-ruby)
 - [XML](https://github.com/segmentio/highlight-xml)
 
 ## API
