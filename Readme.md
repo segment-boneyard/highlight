@@ -41,6 +41,7 @@ highlight.all();
 
 - [CSS](https://github.com/segmentio/highlight-css)
 - [C#](https://github.com/segmentio/highlight-csharp)
+- [Bash](https://github.com/segmentio/highlight-bash)
 - [HTML](https://github.com/segmentio/highlight-xml)
 - [Java](https://github.com/segmentio/highlight-java)
 - [Javascript](https://github.com/segmentio/highlight-javascript)
