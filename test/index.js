@@ -185,6 +185,26 @@ describe('highlight', function(){
         + ' string');
     });
 
+    it('should support language names with non alphabetic characters', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div class="lang-objective-c">an {{ interpolated }} string</div>');
+      h.element(el);
+      assert.equal(el.innerHTML, ''
+        + 'an '
+        + '<span class="Highlight-interpolation">{{ interpolated }}</span>'
+        + ' string');
+    });
+
+    it('should support language names with non alphabetic characters', function(){
+      var h = Highlight().use(fixture);
+      var el = domify('<div class="lang-.net">an {{ interpolated }} string</div>');
+      h.element(el);
+      assert.equal(el.innerHTML, ''
+        + 'an '
+        + '<span class="Highlight-interpolation">{{ interpolated }}</span>'
+        + ' string');
+    });
+
     it('should use a passed in languge', function(){
       var h = Highlight().use(fixture);
       var el = domify('<div>an {{ interpolated }} string</div>');
@@ -231,14 +251,16 @@ describe('highlight', function(){
  */
 
 function fixture(highlight){
-  highlight.language('fixture', {
-    interpolation: /(\{\{\s*\w+\s*\}\})/,
-    block: {
-      pattern: /(\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\})/,
-      children: {
-        open: /(\{\{#\s*\w+\s*\}\})/,
-        close: /(\{\{\/\s*\w+\s*\}\})/
-      }
+  var obj = {};
+  highlight.language('objective-c', obj);
+  highlight.language('fixture', obj);
+  highlight.language('.net', obj);
+  obj.interpolation = /(\{\{\s*\w+\s*\}\})/;
+  obj.block = {
+    pattern: /(\{\{#\s*\w+\s*\}\}.*?\{\{\/\s*\w+\s*\}\})/,
+    children: {
+      open: /(\{\{#\s*\w+\s*\}\})/,
+      close: /(\{\{\/\s*\w+\s*\}\})/
     }
-  });
+  };
 }
