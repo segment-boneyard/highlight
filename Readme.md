@@ -39,18 +39,22 @@ highlight.all();
 
 ## Languages
 
+- [Bash](https://github.com/segmentio/highlight-bash)
 - [CSS](https://github.com/segmentio/highlight-css)
 - [C#](https://github.com/segmentio/highlight-csharp)
-- [Bash](https://github.com/segmentio/highlight-bash)
+- [Go]((https://github.com/segmentio/highlight-go))
 - [HTML](https://github.com/segmentio/highlight-xml)
 - [Java](https://github.com/segmentio/highlight-java)
 - [Javascript](https://github.com/segmentio/highlight-javascript)
+- [JSON](https://github.com/segmentio/highlight-json)
 - [.NET](https://github.com/segmentio/highlight-csharp)
+- [Objective-C](https://github.com/segmentio/highlight-objective-c)
 - [PHP](https://github.com/segmentio/highlight-php)
 - [Python](https://github.com/segmentio/highlight-python)
-- [Objective-C](https://github.com/segmentio/highlight-objective-c)
 - [Ruby](https://github.com/segmentio/highlight-ruby)
+- [SQL](https://github.com/segmentio/highlight-sql)
 - [XML](https://github.com/segmentio/highlight-xml)
+- [YAML](https://github.com/segmentio/highlight-yaml)
 
 ## API
 
