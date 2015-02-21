@@ -42,7 +42,7 @@ highlight.all();
 - [Bash](https://github.com/segmentio/highlight-bash)
 - [CSS](https://github.com/segmentio/highlight-css)
 - [C#](https://github.com/segmentio/highlight-csharp)
-- [Go]((https://github.com/segmentio/highlight-go))
+- [Go](https://github.com/segmentio/highlight-go)
 - [HTML](https://github.com/segmentio/highlight-xml)
 - [Java](https://github.com/segmentio/highlight-java)
 - [Javascript](https://github.com/segmentio/highlight-javascript)
