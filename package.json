@@ -1,5 +1,5 @@
 {
-  "name": "highlight",
+  "name": "syntax-highlighter",
   "version": "0.0.3",
   "repository": "segmentio/highlight",
   "description": "A simple, pluggable API for syntax highlighting.",
